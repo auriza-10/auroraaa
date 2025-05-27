@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Work | Aurora">
+  <h1>Work</h1>
+  <div class="work-grid">
+    <!-- Add your work projects here -->
+    <p>Your work projects will be displayed here.</p>
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #333;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+</style> 

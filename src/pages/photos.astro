@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Photos | Aurora">
+  <h1>Photos</h1>
+  <div class="gallery">
+    <!-- Add your photos here -->
+    <p>Your photo gallery will be displayed here.</p>
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #333;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+</style> 

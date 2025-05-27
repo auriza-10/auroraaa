@@ -1,11 +1,95 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Aurora | Portfolio">
+	<section class="hero">
+		<h1>Welcome to Aurora</h1>
+		<p class="subtitle">Photography • Illustrations • Creative Work</p>
+	</section>
+
+	<section class="sections">
+		<a href="/photos" class="section-link">
+			<h2>Photos</h2>
+			<p>Explore my photography collection</p>
+		</a>
+
+		<a href="/illustrations" class="section-link">
+			<h2>Illustrations</h2>
+			<p>View my digital illustrations</p>
+		</a>
+
+		<a href="/work" class="section-link">
+			<h2>Work</h2>
+			<p>Check out my creative projects</p>
+		</a>
+	</section>
 </Layout>
+
+<style>
+	.hero {
+		text-align: center;
+		padding: 4rem 2rem;
+		background-color: #f8f9fa;
+		margin: -2rem -2rem 2rem -2rem;
+	}
+
+	h1 {
+		font-size: 3rem;
+		color: #333;
+		margin-bottom: 1rem;
+	}
+
+	.subtitle {
+		font-size: 1.2rem;
+		color: #666;
+	}
+
+	.sections {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 2rem 0;
+	}
+
+	.section-link {
+		text-decoration: none;
+		color: inherit;
+		padding: 2rem;
+		border: 1px solid #eee;
+		border-radius: 8px;
+		transition: all 0.3s ease;
+	}
+
+	.section-link:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+		border-color: #ddd;
+	}
+
+	.section-link h2 {
+		font-size: 2rem;
+		color: #333;
+		margin-bottom: 0.5rem;
+	}
+
+	.section-link p {
+		color: #666;
+		font-size: 1.1rem;
+	}
+
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 2.5rem;
+		}
+
+		.section-link {
+			padding: 1.5rem;
+		}
+	}
+</style>
