@@ -1,26 +1,84 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/gallery.css';
 ---
 
-<Layout title="Work | Aurora">
-  <h1>Work</h1>
-  <div class="work-grid">
-    <!-- Add your work projects here -->
-    <p>Your work projects will be displayed here.</p>
-  </div>
+<Layout title="Animaciones">
+  <main>
+    <h1>Animaciones</h1>
+    <div class="gallery">
+      <div class="gallery-item">
+        <video controls>
+          <source src="/img/animaciones/aurora.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento video.
+        </video>
+      </div>
+      <div class="gallery-item">
+        <video controls>
+          <source src="/img/animaciones/autorretrato.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento video.
+        </video>
+      </div>
+      <div class="gallery-item">
+        <video controls>
+          <source src="/img/animaciones/camara.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento video.
+        </video>
+      </div>
+      <div class="gallery-item">
+        <video controls>
+          <source src="/img/animaciones/mascara.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento video.
+        </video>
+      </div>
+      <div class="gallery-item">
+        <video controls>
+          <source src="/img/animaciones/pendulo.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento video.
+        </video>
+      </div>
+      <div class="gallery-item">
+        <video controls>
+          <source src="/img/animaciones/rotoscopeo.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento video.
+        </video>
+      </div>
+    </div>
+  </main>
 </Layout>
 
 <style>
-  h1 {
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-    color: #333;
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
   }
 
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 1rem 0;
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    aspect-ratio: 16/9;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.05);
+  }
+
+  .gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .gallery {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
   }
 </style> 

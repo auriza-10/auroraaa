@@ -1,60 +1,148 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import Favicon from '../components/Favicon.astro';
+import Preloader from '../components/Preloader.astro';
 
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+const isMainPage = Astro.url.pathname === '/';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>{title} | Aurora</title>
+		<meta name="description" content="Aurora - Explora mi mundo creativo a través de fotos, ilustraciones y animaciones" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+		<Favicon />
+		<Preloader />
 	</head>
-	<body>
-		<Header />
-		<main>
+	<body class={isMainPage ? 'main-page' : 'content-page'}>
+		{!isMainPage && (
+			<header>
+				<nav aria-label="Navegación principal">
+					<a href="/" class="home-link" aria-label="Ir a la página principal">
+						<img src="/img/icono.png" alt="Logo de Aurora" class="nav-icon">
+					</a>
+					<ul>
+						<li><a href="/photos" aria-current={Astro.url.pathname === '/photos' ? 'page' : undefined}>Fotos</a></li>
+						<li><a href="/illustrations" aria-current={Astro.url.pathname === '/illustrations' ? 'page' : undefined}>Ilustraciones</a></li>
+						<li><a href="/work" aria-current={Astro.url.pathname === '/work' ? 'page' : undefined}>Animaciones</a></li>
+					</ul>
+				</nav>
+			</header>
+		)}
+
 		<slot />
-		</main>
-		<Footer />
 	</body>
 </html>
 
-<style is:global>
-	:root {
-		--font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	}
-
-	* {
+<style>
+	body {
 		margin: 0;
 		padding: 0;
-		box-sizing: border-box;
-	}
-
-	html {
-		font-family: var(--font-sans);
-		font-size: 16px;
-		line-height: 1.5;
-	}
-
-	body {
 		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
 	}
 
-	main {
-		flex: 1;
-		padding: 2rem;
+	body.main-page {
+		background-image: url('/img/backgroundb.jpg');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+	}
+
+	body.content-page {
+		background-image: url('/img/backgroundb.jpg');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		body.main-page,
+		body.content-page {
+			background-image: url('/img/backgroundnn.jpg');
+		}
+	}
+
+	header {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		padding: 1rem;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		max-width: 1200px;
 		margin: 0 auto;
-		width: 100%;
+		padding: 0 1rem;
+	}
+
+	.home-link {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+	}
+
+	.nav-icon {
+		height: 25px;
+		width: auto;
+		transition: transform 0.3s ease;
+	}
+
+	.home-link:hover .nav-icon {
+		transform: scale(1.1);
+	}
+
+	nav ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+	}
+
+	nav a {
+		color: var(--text-color);
+		text-decoration: none;
+		font-size: 1.1rem;
+		transition: color 0.3s ease;
+	}
+
+	nav a:hover {
+		color: #666;
+	}
+
+	nav a[aria-current="page"] {
+		font-weight: bold;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 768px) {
+		nav {
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		nav ul {
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		.nav-icon {
+			height: 20px;
+		}
 	}
 </style>
