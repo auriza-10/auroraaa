@@ -14,11 +14,35 @@ const socialLinks = {
 
 <Layout title="Inicio">
   <section class="coverflow-container">
-    <div class="coverflow-track" id="carousel-track">
-      <img src="/img/aurora1.jpg" class="coverflow-item active" />
-      <img src="/img/aurora2.jpg" class="coverflow-item" />
-      <img src="/img/aurora3.jpg" class="coverflow-item" />
-      <img src="/img/aurora4.jpg" class="coverflow-item" />
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="/img/aurora1.jpg" alt="Aurora 1" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/aurora2.jpg" alt="Aurora 2" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/aurora3.jpg" alt="Aurora 3" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/aurora4.jpg" alt="Aurora 4" />
+        </div>
+        
+        <div class="swiper-slide">
+          <img src="/img/aurora5.jpg" alt="Aurora 2" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/aurora6.jpg" alt="Aurora 3" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/aurora7.jpg" alt="Aurora 4" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/aurora8.jpg" alt="Aurora 4" />
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
 
@@ -45,66 +69,107 @@ const socialLinks = {
 
   <section class="staircase-section">
     <div class="staircase-item">
-      <a href="/favorite-artists">
-        <h3>Favorite Artist</h3>
+      <a href="/favorite-songs">
+        <h3>Auroraaa's favorite songs</h3>
       </a>
     </div>
     <div class="staircase-item">
-      <a href="/favorite-animations">
-        <h3>Favorite Animations</h3>
+      <a href="/philosophy">
+        <h3>Phylosophy of auroraaa</h3>
       </a>
     </div>
     <div class="staircase-item">
-      <a href="/favorite-digital-artists">
-        <h3>Favorite Digital Artists</h3>
+      <a href="/inspo">
+        <h3>Auroraaa's inspirations</h3>
       </a>
     </div>
-  </section>
-
-  <section class="social-media">
-    <h2>Follow me on social media</h2>
-    <div class="social-icons">
-      <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-        </svg>
-      </a>
-
-      <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
-        </svg>
-      </a>
-
-      <a href={socialLinks.pinterest} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Pinterest">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 21c1-1.4 1-2 2-4s0-2 0-2c-1-1.3 0-3 0-3s.4-1 1-1 2 .5 2 2c0 2-1 3-1 4s0 1 0 1c1-1 3-2 3-5 0-2-2-4-4-4s-4 2-4 5c0 2 .5 3 1 4"/>
-          <circle cx="12" cy="12" r="10"/>
-        </svg>
-      </a>
-
-      <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61C16.57 13.15 17 11.8 17 10c0-2.5-1.5-4-4-4S9 7.5 9 10c0 1.8.43 3.15 1.06 3.52A3.37 3.37 0 0 0 9 17.13V21"/>
-        </svg>
-      </a>
-
-      <a href={socialLinks.spotify} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Spotify">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M8 14s4-1 8 1M8 10s5-1 9 2M9 6s6-1 10 3"/>
-        </svg>
-      </a>
-
-      <a href={socialLinks.behance} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Behance">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="3" width="20" height="18" rx="2" ry="2"/>
-          <path d="M6 8h4a2 2 0 0 1 0 4H6zm0 4h4a2 2 0 0 1 0 4H6zM14 8h5M15 13h4a2 2 0 1 1-2 3c-1.1 0-2-1-2-2z"/>
-        </svg>
-      </a>
-    </div>
-    <p class="copyright">© {new Date().getFullYear()} Auroraaa. All rights reserved.</p>
   </section>
 </Layout>
 
-<script is:inline src="/js/carrusel.js"></script>
+<script>
+  import Swiper from 'swiper';
+  import { Pagination } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      modules: [Pagination],
+    });
+  });
+</script>
+
+<style>
+  .coverflow-container {
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .swiper {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
+
+  .swiper-slide-active img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-pagination {
+    bottom: 0;
+  }
+
+  .subtitle {
+    font-family: 'Ancizar Serif', serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2rem 0;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .swiper-slide {
+      width: 200px;
+      height: 200px;
+    }
+
+    .swiper-slide-active img {
+      transform: scale(1.05);
+    }
+
+    .coverflow-container {
+      padding: 10px 0;
+    }
+
+    .swiper {
+      padding-top: 10px;
+      padding-bottom: 40px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin: 1.5rem 0;
+    }
+  }
+</style>

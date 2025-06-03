@@ -7,44 +7,53 @@ import '../styles/gallery.css';
   <main>
     <h1>Animaciones</h1>
     <div class="gallery">
-      <div class="gallery-item">
-        <video controls>
-          <source src="/img/animaciones/aurora.mp4" type="video/mp4">
+      <div class="gallery-item" data-video="https://res.cloudinary.com/dlf6e4zdk/video/upload/v1748966380/Autorretrato_lygazk.mp4">
+        <video controls preload="metadata" playsinline>
+          <source src="https://res.cloudinary.com/dlf6e4zdk/video/upload/v1748966380/Autorretrato_lygazk.mp4" type="video/mp4">
           Tu navegador no soporta el elemento video.
         </video>
+        <h3 class="media-title">Autorretrato</h3>
       </div>
-      <div class="gallery-item">
-        <video controls>
-          <source src="/img/animaciones/autorretrato.mp4" type="video/mp4">
+      <div class="gallery-item" data-video="https://res.cloudinary.com/dlf6e4zdk/video/upload/v1748967575/cc8kcr6qhize6glukcv4.mp4">
+        <video controls preload="metadata" playsinline>
+          <source src="https://res.cloudinary.com/dlf6e4zdk/video/upload/v1748967575/cc8kcr6qhize6glukcv4.mp4">
           Tu navegador no soporta el elemento video.
         </video>
+        <h3 class="media-title">Máscara</h3>
       </div>
-      <div class="gallery-item">
-        <video controls>
-          <source src="/img/animaciones/camara.mp4" type="video/mp4">
+      <div class="gallery-item" data-video="https://res.cloudinary.com/dlf6e4zdk/video/upload/v1748966405/Mascara_i4eddf.mp4">
+        <video controls preload="metadata" playsinline>
+          <source src="https://res.cloudinary.com/dlf6e4zdk/video/upload/v1748966405/Mascara_i4eddf.mp4">
           Tu navegador no soporta el elemento video.
         </video>
+        <h3 class="media-title">Rotoscopía</h3>
       </div>
-      <div class="gallery-item">
-        <video controls>
-          <source src="/img/animaciones/mascara.mp4" type="video/mp4">
+      <div class="gallery-item" data-video="https://res.cloudinary.com/dlf6e4zdk/video/upload/v1748966405/Rotoscopeo_pvxsbv.mp4">
+        <video controls preload="metadata" playsinline>
+          <source src="https://res.cloudinary.com/dlf6e4zdk/video/upload/v1748966405/Rotoscopeo_pvxsbv.mp4">
           Tu navegador no soporta el elemento video.
         </video>
+        <h3 class="media-title">Cámara</h3>
       </div>
-      <div class="gallery-item">
-        <video controls>
-          <source src="/img/animaciones/pendulo.mp4" type="video/mp4">
+      <div class="gallery-item" data-video="https://res.cloudinary.com/dlf6e4zdk/video/upload/v1748966387/Camara_bxtr0h.mp4">
+        <video controls preload="metadata" playsinline>
+          <source src="https://res.cloudinary.com/dlf6e4zdk/video/upload/v1748966387/Camara_bxtr0h.mp4" type="video/mp4">
           Tu navegador no soporta el elemento video.
         </video>
-      </div>
-      <div class="gallery-item">
-        <video controls>
-          <source src="/img/animaciones/rotoscopeo.mp4" type="video/mp4">
-          Tu navegador no soporta el elemento video.
-        </video>
+        <h3 class="media-title">Aurora</h3>
       </div>
     </div>
   </main>
+
+  <div class="modal" id="videoModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <video id="modalVideo" controls autoplay>
+        <source src="" type="video/mp4">
+        Tu navegador no soporta el elemento video.
+      </video>
+    </div>
+  </div>
 </Layout>
 
 <style>
@@ -62,6 +71,8 @@ import '../styles/gallery.css';
     cursor: pointer;
     transition: transform 0.3s ease;
     aspect-ratio: 16/9;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
   }
 
   .gallery-item:hover {
@@ -73,6 +84,62 @@ import '../styles/gallery.css';
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 10px;
+  }
+
+  .media-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    margin: 0;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Ancizar Serif', serif;
+    backdrop-filter: blur(5px);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    z-index: 2;
+    letter-spacing: 1px;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+  }
+
+  .modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 2% auto;
+    height: 90vh;
+  }
+
+  .modal-content video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .close {
+    position: absolute;
+    right: -40px;
+    top: 0;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
   }
 
   @media (max-width: 768px) {
@@ -80,5 +147,55 @@ import '../styles/gallery.css';
       grid-template-columns: 1fr;
       padding: 1rem;
     }
+
+    .media-title {
+      font-size: 1rem;
+    }
+
+    .modal-content {
+      width: 95%;
+      margin: 5% auto;
+    }
+
+    .close {
+      right: 0;
+      top: -40px;
+    }
   }
-</style> 
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo') as HTMLVideoElement;
+    const closeBtn = document.querySelector('.close');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    if (!modal || !modalVideo || !closeBtn) return;
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const videoSrc = item.getAttribute('data-video');
+        if (videoSrc) {
+          modalVideo.src = videoSrc;
+          modal.style.display = 'block';
+          modalVideo.play();
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modalVideo.pause();
+      modalVideo.src = '';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        modalVideo.pause();
+        modalVideo.src = '';
+      }
+    });
+  });
+</script> 

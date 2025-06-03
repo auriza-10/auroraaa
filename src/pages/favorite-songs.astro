@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/main.css';
+---
+
+<Layout title="Favorite Songs">
+  <main>
+    <h1>Auroraaa's favorite songs</h1>
+    <div class="content">
+      <p>Coming soon...</p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-family: 'Ancizar Serif', serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .content {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
