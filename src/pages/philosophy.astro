@@ -5,9 +5,25 @@ import '../styles/main.css';
 
 <Layout title="Philosophy">
   <main>
-    <h1>Phylosophy of auroraaa</h1>
+    <h1>Phylosophy</h1>
     <div class="content">
-      <p>Coming soon...</p>
+      <div class="floating-balls left-balls">
+        <div class="ball" data-speed="0.5"></div>
+        <div class="ball" data-speed="0.3"></div>
+        <div class="ball" data-speed="0.7"></div>
+      </div>
+      <div class="text-content">
+        <p> Habita entre los márgenes, donde lo digital se ensucia y lo dulce se quiebra. Todo lo que dibujo parece ruidoso, vivo, caricaturesco… pero cada línea nace en silencio, desde un lugar donde no hay color, solo intención.</p>
+
+        <p> Mi estética personal es monocroma, porque ahí está la raíz. Blanco para lo que escondo. Negro para lo que no puedo evitar mostrar. Y el grunge... porque nada que valga la pena está limpio del todo.</p>
+          
+        <p> Creo personajes que nunca encajan del todo con colores que parecen gritar. Pero Auroraaa la sombra que los observa crear el caos.</p>
+      </div>
+      <div class="floating-balls right-balls">
+        <div class="ball" data-speed="0.4"></div>
+        <div class="ball" data-speed="0.6"></div>
+        <div class="ball" data-speed="0.2"></div>
+      </div>
     </div>
   </main>
 </Layout>
@@ -17,19 +33,76 @@ import '../styles/main.css';
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    min-height: 100vh;
   }
 
   h1 {
-    font-family: 'Ancizar Serif', serif;
+    font-family: 'IM Fell English SC', serif;
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
   }
 
   .content {
-    text-align: center;
+    text-align: left;
+    text-align-last: left;
+    text-justify: inter-word;
     font-size: 1.2rem;
+    max-width: 50%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
   }
+
+  .text-content {
+    flex: 1;
+    z-index: 1;
+  }
+
+  .floating-balls {
+    position: fixed;
+    width: 100px;
+    height: 100vh;
+    top: 0;
+    z-index: 0;
+  }
+
+  .left-balls {
+    left: 20px;
+  }
+
+  .right-balls {
+    right: 20px;
+  }
+
+  .ball {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: #000000;
+    border-radius: 50%;
+    transition: transform 0.2s ease-out, background-color 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .ball {
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .left-balls .ball:nth-child(1) { top: 20%; }
+  .left-balls .ball:nth-child(2) { top: 50%; }
+  .left-balls .ball:nth-child(3) { top: 80%; }
+
+  .right-balls .ball:nth-child(1) { top: 20%; }
+  .right-balls .ball:nth-child(2) { top: 50%; }
+  .right-balls .ball:nth-child(3) { top: 80%; }
 
   @media (max-width: 768px) {
     main {
@@ -37,7 +110,84 @@ import '../styles/main.css';
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .content {
+      max-width: 85%;
+      font-size: 1rem;
+      margin: 0 auto;
+    }
+
+    .floating-balls {
+      display: block;
+      width: 60px;
+    }
+
+    .ball {
+      width: 60px;
+      height: 60px;
     }
   }
-</style> 
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const balls = document.querySelectorAll('.ball');
+    const main = document.querySelector('main');
+
+    if (!main) return;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let ballPositions = Array.from(balls).map(() => ({ x: 0, y: 0 }));
+
+    main.addEventListener('mousemove', ((e: Event) => {
+      const mouseEvent = e as MouseEvent;
+      mouseX = mouseEvent.clientX;
+      mouseY = mouseEvent.clientY;
+
+      balls.forEach((ball, index) => {
+        const ballRect = ball.getBoundingClientRect();
+        const ballX = ballRect.left + ballRect.width / 2;
+        const ballY = ballRect.top + ballRect.height / 2;
+
+        const deltaX = mouseX - ballX;
+        const deltaY = mouseY - ballY;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        const speed = parseFloat(ball.getAttribute('data-speed') || '0.5');
+
+        if (distance < 300) {
+          const force = (300 - distance) / 300;
+          const moveX = -deltaX * force * speed * 2;
+          const moveY = -deltaY * force * speed * 2;
+
+          ballPositions[index].x += moveX * 0.15;
+          ballPositions[index].y += moveY * 0.15;
+
+          ballPositions[index].x = Math.max(-50, Math.min(50, ballPositions[index].x));
+          ballPositions[index].y = Math.max(-50, Math.min(50, ballPositions[index].y));
+
+          (ball as HTMLElement).style.transform = `translate(${ballPositions[index].x}px, ${ballPositions[index].y}px)`;
+        } else {
+          ballPositions[index].x *= 0.9;
+          ballPositions[index].y *= 0.9;
+          (ball as HTMLElement).style.transform = `translate(${ballPositions[index].x}px, ${ballPositions[index].y}px)`;
+        }
+      });
+    }) as EventListener);
+
+    function animate() {
+      balls.forEach((ball, index) => {
+        if (Math.abs(ballPositions[index].x) > 0.1 || Math.abs(ballPositions[index].y) > 0.1) {
+          ballPositions[index].x *= 0.9;
+          ballPositions[index].y *= 0.9;
+          (ball as HTMLElement).style.transform = `translate(${ballPositions[index].x}px, ${ballPositions[index].y}px)`;
+        }
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  });
+</script> 

@@ -1,16 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/main.css';
+import '../styles/gallery.css';
 ---
 
 <Layout title="Favorite Songs">
   <main>
     <h1>Auroraaa's favorite songs</h1>
-    <div class="content">
-      <p>Coming soon...</p>
+    <div class="gallery">
+      <a class="gallery-item" href="https://open.spotify.com/intl-es/track/3r8RuvgbX9s7ammBn07D3W?si=1135199c948a4187" target="_blank" rel="noopener noreferrer">
+        <img src="/img/songs/newjeans.jpg" alt="NewJeans">
+        <h3 class="media-title">Ditto by NewJeans</h3>
+      </a>
+      <a class="gallery-item" href="https://open.spotify.com/intl-es/track/6SmfBvW4JgsoZPhagI0N3L?si=82ee5f5d16474094" target="_blank" rel="noopener noreferrer">
+        <img src="/img/songs/wayv.jpg" alt="WayV">
+        <h3 class="media-title">Domino by WayV</h3>
+      </a>
+      <a class="gallery-item" href="https://open.spotify.com/intl-es/track/3wq6H8Cr4L7T2JDKgpCGUE?si=afeaf76783b449c3" target="_blank" rel="noopener noreferrer">
+        <img src="/img/songs/redvelvet.jpg" alt="Red Velvet">
+        <h3 class="media-title">Will I Ever See You Again? by Red Velvet</h3>
+      </a>
+      <a class="gallery-item" href="https://open.spotify.com/intl-es/track/3LjS1vGAprMNthdyue5XZD?si=1cfb600bdc884f98" target="_blank" rel="noopener noreferrer">
+        <img src="/img/songs/kai.jpg" alt="Kai">
+        <h3 class="media-title">Hello Stranger by Kai</h3>
+      </a>
+      <a class="gallery-item" href="https://open.spotify.com/intl-es/track/3AKAeUJc8AFIV2O1UmekPN?si=16f959d20f724c07" target="_blank" rel="noopener noreferrer">
+        <img src="/img/songs/dream.jpg" alt="NCT Dream">
+        <h3 class="media-title">UNKNOWN by NCT Dream</h3>
+      </a>
     </div>
   </main>
 </Layout>
+
 
 <style>
   main {
@@ -20,15 +41,50 @@ import '../styles/main.css';
   }
 
   h1 {
-    font-family: 'Ancizar Serif', serif;
+    font-family: 'IM Fell English SC', serif;
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
   }
 
-  .content {
-    text-align: center;
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.05);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .media-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1rem;
+    margin: 0;
+    font-family: 'Ancizar Serif', serif;
     font-size: 1.2rem;
+    text-align: center;
   }
 
   @media (max-width: 768px) {
@@ -39,5 +95,31 @@ import '../styles/main.css';
     h1 {
       font-size: 2rem;
     }
+
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+      height: 250px;
+    }
   }
 </style>
+
+<script>
+  function openModal(element: HTMLElement) {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.onclick = () => modal.remove();
+
+    const img = element.querySelector('img');
+    if (!img) return;
+
+    const modalImg = document.createElement('img');
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+
+    modal.appendChild(modalImg);
+    document.body.appendChild(modal);
+  }
+</script>

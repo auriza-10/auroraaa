@@ -9,6 +9,7 @@ interface Props {
 
 const { title } = Astro.props;
 const isMainPage = Astro.url.pathname === '/';
+const isSpecialPage = ['/philosophy', '/favorite-songs', '/inspo'].includes(Astro.url.pathname);
 
 const socialLinks = {
 	instagram: "https://www.instagram.com/a_u__r___/",
@@ -41,9 +42,19 @@ const socialLinks = {
 						<img src="/img/icono.png" alt="Logo de Aurora" class="nav-icon">
 					</a>
 					<ul>
-						<li><a href="/photos" aria-current={Astro.url.pathname === '/photos' ? 'page' : undefined}>Fotos</a></li>
-						<li><a href="/illustrations" aria-current={Astro.url.pathname === '/illustrations' ? 'page' : undefined}>Ilustraciones</a></li>
-						<li><a href="/work" aria-current={Astro.url.pathname === '/work' ? 'page' : undefined}>Animaciones</a></li>
+						{isSpecialPage ? (
+							<>
+								<li><a href="/philosophy" aria-current={Astro.url.pathname === '/philosophy' ? 'page' : undefined}>Philosophy</a></li>
+								<li><a href="/favorite-songs" aria-current={Astro.url.pathname === '/favorite-songs' ? 'page' : undefined}>Favorite Songs</a></li>
+								<li><a href="/inspo" aria-current={Astro.url.pathname === '/inspo' ? 'page' : undefined}>Inspiration</a></li>
+							</>
+						) : (
+							<>
+								<li><a href="/photos" aria-current={Astro.url.pathname === '/photos' ? 'page' : undefined}>Fotos</a></li>
+								<li><a href="/illustrations" aria-current={Astro.url.pathname === '/illustrations' ? 'page' : undefined}>Ilustraciones</a></li>
+								<li><a href="/work" aria-current={Astro.url.pathname === '/work' ? 'page' : undefined}>Animaciones</a></li>
+							</>
+						)}
 					</ul>
 				</nav>
 			</header>

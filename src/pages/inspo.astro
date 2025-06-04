@@ -3,11 +3,45 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/main.css';
 ---
 
-<Layout title="Inspirations">
+<Layout title="Inspiration">
   <main>
-    <h1>Auroraaa's inspirations</h1>
-    <div class="content">
-      <p>Coming soon...</p>
+    <h1>Inspiration</h1>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="/img/inspo/aes.jpg" alt="Inspiration 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/inspo/aespaaa.webp" alt="Inspiration 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/inspo/cloud.jpg" alt="Inspiration 3">
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/inspo/newjeanspp.webp" alt="Inspiration 4">
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/inspo/genshin-impact.jpg" alt="Inspiration 5">
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/inspo/heartsteel.jpg" alt="Inspiration 6">
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/inspo/jjk.jpg" alt="Inspiration 7">
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/inspo/nana.jpg" alt="Inspiration 8">
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/inspo/kda.webp" alt="Inspiration 9">
+        </div>
+        <div class="swiper-slide">
+          <img src="/img/inspo/zimzalabim.jpg" alt="Inspiration 9">
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </main>
 </Layout>
@@ -17,18 +51,63 @@ import '../styles/main.css';
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    min-height: 100vh;
   }
 
   h1 {
-    font-family: 'Ancizar Serif', serif;
+    font-family: 'IM Fell English SC', serif;
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
   }
 
-  .content {
+  .swiper {
+    width: 100%;
+    height: 80vh;
+    margin: 0 auto;
+  }
+
+  .swiper-slide {
     text-align: center;
-    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 20px;
+  }
+
+  .swiper-pagination-bullet {
+    background: var(--text-color);
+    opacity: 0.5;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
   }
 
   @media (max-width: 768px) {
@@ -37,7 +116,52 @@ import '../styles/main.css';
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .swiper {
+      height: 60vh;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 30px;
+      height: 30px;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 16px;
     }
   }
-</style> 
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper('.mySwiper', {
+      modules: [Navigation, Pagination, Mousewheel, Keyboard],
+      cssMode: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      mousewheel: true,
+      keyboard: true,
+      loop: true,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      }
+    });
+  });
+</script> 
