@@ -29,6 +29,9 @@ const socialLinks = {
 		<title>{title} | Aurora</title>
 		<meta name="description" content="Aurora - Explora mi mundo creativo a través de fotos, ilustraciones y animaciones" />
 		<link rel="manifest" href="/site.webmanifest">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 		<Favicon />
@@ -149,7 +152,7 @@ const socialLinks = {
 	}
 
 	.nav-icon {
-		height: 25px;
+		height: 20px;
 		width: auto;
 		transition: transform 0.3s ease;
 	}
@@ -184,40 +187,70 @@ const socialLinks = {
 	}
 
 	.social-media {
-		background: #ffffff;
-		padding: 2rem 1rem;
+		font-family: 'Ancizar Serif', serif;
+		padding: 2rem 0;
+		margin-top: 4rem;
 		text-align: center;
-		margin-top: auto;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
 	}
 
 	.social-media h2 {
-		margin-bottom: 1.5rem;
-		color: #333;
+		font-size: 2rem;
+		font-family: 'IM Fell English';
+		margin-bottom: 2rem;
+		color: var(--text-color);
 	}
 
 	.social-icons {
 		display: flex;
 		justify-content: center;
 		gap: 1.5rem;
-		flex-wrap: wrap;
-		margin-bottom: 1.5rem;
+		margin-bottom: 1rem;
 	}
 
 	.social-icon {
-		color: #333;
-		transition: transform 0.3s ease, color 0.3s ease;
-		font-size: 1.5rem;
+		color: var(--text-color);
+		transition: all 0.3s ease;
+		padding: 0.5rem;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.social-icon:hover {
-		transform: scale(1.1);
-		color: #666;
+		color: var(--accent-color);
+		background-color: rgba(0, 0, 0, 0.05);
+		transform: translateY(-2px);
 	}
 
 	.copyright {
-		color: #666;
+		color: var(--accent-color);
 		font-size: 0.9rem;
-		margin: 0;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.social-media {
+			background-color: transparent;
+		}
+
+		.social-media h2 {
+			color: var(--text-color);
+		}
+
+		.social-icon {
+			color: var(--text-color);
+		}
+
+		.social-icon:hover {
+			color: var(--accent-color);
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		.copyright {
+			color: var(--text-color);
+		}
 	}
 
 	@media (max-width: 768px) {
@@ -237,31 +270,12 @@ const socialLinks = {
 		}
 
 		.social-icons {
+			flex-wrap: wrap;
 			gap: 1rem;
-		}
-	}
-
-	@media (prefers-color-scheme: dark) {
-		body.main-page,
-		body.content-page {
-			background-image: url('/img/backgroundnn.jpg');
-		}
-
-		.social-media {
-			background: rgba(255, 255, 255, 0.1);
-			backdrop-filter: blur(10px);
 		}
 
 		.social-media h2 {
-			color: var(--text-color);
-		}
-
-		.social-icon {
-			color: var(--text-color);
-		}
-
-		.copyright {
-			color: var(--text-color);
+			font-size: 1.5rem;
 		}
 	}
 </style>
