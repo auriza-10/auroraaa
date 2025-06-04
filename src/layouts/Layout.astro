@@ -29,9 +29,6 @@ const socialLinks = {
 		<title>{title} | Aurora</title>
 		<meta name="description" content="Aurora - Explora mi mundo creativo a través de fotos, ilustraciones y animaciones" />
 		<link rel="manifest" href="/site.webmanifest">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 		<Favicon />
@@ -128,9 +125,9 @@ const socialLinks = {
 	}
 
 	header {
-		background: rgba(255, 255, 255, 0.1);
+		background: rgba(255, 255, 255, 0.3);
 		backdrop-filter: blur(10px);
-		padding: 1rem;
+		padding: 0.8rem;
 		position: sticky;
 		top: 0;
 		z-index: 100;
@@ -140,9 +137,9 @@ const socialLinks = {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		max-width: 1200px;
+		max-width: 1000px;
 		margin: 0 auto;
-		padding: 0 1rem;
+		padding: 0 0.8rem;
 	}
 
 	.home-link {
@@ -155,6 +152,7 @@ const socialLinks = {
 		height: 20px;
 		width: auto;
 		transition: transform 0.3s ease;
+		object-fit: contain;
 	}
 
 	.home-link:hover .nav-icon {
@@ -167,14 +165,15 @@ const socialLinks = {
 		margin: 0;
 		display: flex;
 		justify-content: center;
-		gap: 2rem;
+		gap: 1.5rem;
 	}
 
 	nav a {
 		color: var(--text-color);
 		text-decoration: none;
-		font-size: 1.1rem;
+		font-size: 1rem;
 		transition: color 0.3s ease;
+		white-space: nowrap;
 	}
 
 	nav a:hover {
@@ -191,22 +190,33 @@ const socialLinks = {
 		padding: 2rem 0;
 		margin-top: 4rem;
 		text-align: center;
-		background: rgba(255, 255, 255, 0.1);
-		backdrop-filter: blur(10px);
+		background: rgba(255, 255, 255, 0.3);
+		width: 100%;
+		position: relative;
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.social-media h2 {
 		font-size: 2rem;
-		font-family: 'IM Fell English';
+		font-family: 'IM Fell English SC', serif;
 		margin-bottom: 2rem;
 		color: var(--text-color);
+		text-align: center;
+		width: 100%;
 	}
 
 	.social-icons {
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		gap: 1.5rem;
 		margin-bottom: 1rem;
+		width: 100%;
+		flex-wrap: wrap;
 	}
 
 	.social-icon {
@@ -226,13 +236,20 @@ const socialLinks = {
 	}
 
 	.copyright {
-		color: var(--accent-color);
+		color: var(--text-color);
 		font-size: 0.9rem;
+		text-align: center;
+		width: 100%;
+		margin-top: 1rem;
 	}
 
 	@media (prefers-color-scheme: dark) {
+		header {
+			background: rgba(0, 0, 0, 0.3);
+		}
+
 		.social-media {
-			background-color: transparent;
+			background: rgba(0, 0, 0, 0.3);
 		}
 
 		.social-media h2 {
@@ -255,27 +272,23 @@ const socialLinks = {
 
 	@media (max-width: 768px) {
 		nav {
-			flex-direction: column;
-			gap: 1rem;
+			flex-direction: row;
+			gap: 0.8rem;
+			padding: 0 0.8rem;
 		}
 
 		nav ul {
-			flex-direction: column;
+			flex-direction: row;
 			align-items: center;
-			gap: 1rem;
+			gap: 1.2rem;
 		}
 
 		.nav-icon {
-			height: 20px;
+			height: 16px;
 		}
 
-		.social-icons {
-			flex-wrap: wrap;
-			gap: 1rem;
-		}
-
-		.social-media h2 {
-			font-size: 1.5rem;
+		nav a {
+			font-size: 0.9rem;
 		}
 	}
 </style>
