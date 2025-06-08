@@ -28,7 +28,7 @@ const socialLinks = {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>{title} | Aurora</title>
 		<meta name="description" content="Aurora - Explora mi mundo creativo a través de fotos, ilustraciones y animaciones" />
-		<link rel="manifest" href="/site.webmanifest">
+		<link rel="manifest" href="/auroraaa/site.webmanifest">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 		<Favicon />
@@ -38,21 +38,21 @@ const socialLinks = {
 		{!isMainPage && (
 			<header>
 				<nav aria-label="Navegación principal">
-					<a href="/" class="home-link" aria-label="Ir a la página principal">
-						<img src="/img/icono.png" alt="Logo de Aurora" class="nav-icon">
+					<a href="/auroraaa" class="home-link" aria-label="Ir a la página principal">
+						<img src="/auroraaa/img/icono.png" alt="Logo de Aurora" class="nav-icon">
 					</a>
 					<ul>
 						{isSpecialPage ? (
 							<>
-								<li><a href="/philosophy" aria-current={Astro.url.pathname === '/philosophy' ? 'page' : undefined}>Philosophy</a></li>
-								<li><a href="/favorite-songs" aria-current={Astro.url.pathname === '/favorite-songs' ? 'page' : undefined}>Favorite Songs</a></li>
-								<li><a href="/inspo" aria-current={Astro.url.pathname === '/inspo' ? 'page' : undefined}>Inspiration</a></li>
+								<li><a href="/auroraaa/philosophy" aria-current={Astro.url.pathname === '/philosophy' ? 'page' : undefined}>Philosophy</a></li>
+								<li><a href="/auroraaa/favorite-songs" aria-current={Astro.url.pathname === '/favorite-songs' ? 'page' : undefined}>Favorite Songs</a></li>
+								<li><a href="/auroraaa/inspo" aria-current={Astro.url.pathname === '/inspo' ? 'page' : undefined}>Inspiration</a></li>
 							</>
 						) : (
 							<>
-								<li><a href="/photos" aria-current={Astro.url.pathname === '/photos' ? 'page' : undefined}>Fotos</a></li>
-								<li><a href="/illustrations" aria-current={Astro.url.pathname === '/illustrations' ? 'page' : undefined}>Ilustraciones</a></li>
-								<li><a href="/work" aria-current={Astro.url.pathname === '/work' ? 'page' : undefined}>Animaciones</a></li>
+								<li><a href="/auroraaa/photos" aria-current={Astro.url.pathname === '/photos' ? 'page' : undefined}>Fotos</a></li>
+								<li><a href="/auroraaa/illustrations" aria-current={Astro.url.pathname === '/illustrations' ? 'page' : undefined}>Ilustraciones</a></li>
+								<li><a href="/auroraaa/work" aria-current={Astro.url.pathname === '/work' ? 'page' : undefined}>Animaciones</a></li>
 							</>
 						)}
 					</ul>
@@ -104,14 +104,14 @@ const socialLinks = {
 	}
 
 	body.main-page {
-		background-image: url('/img/backgroundb.jpg');
+		background-image: url('/auroraaa/img/backgroundb.jpg');
 		background-size: cover;
 		background-position: center;
 		background-attachment: fixed;
 	}
 
 	body.content-page {
-		background-image: url('/img/backgroundb.jpg');
+		background-image: url('/auroraaa/img/backgroundb.jpg');
 		background-size: cover;
 		background-position: center;
 		background-attachment: fixed;
@@ -120,7 +120,7 @@ const socialLinks = {
 	@media (prefers-color-scheme: dark) {
 		body.main-page,
 		body.content-page {
-			background-image: url('/img/backgroundnn.jpg');
+			background-image: url('/auroraaa/img/backgroundnn.jpg');
 		}
 	}
 

@@ -7,7 +7,8 @@ const isDeploy = process.env.DEPLOY === 'true';
 export default defineConfig({
   site: "https://auriza-10.github.io/auroraaa",
   // Usar base path solo en deploy
-  base: isDeploy ? "/auroraaa" : "/",
+  // base: isDeploy ? "/auroraaa" : "/",
+  base: "/auroraaa",
   trailingSlash: "never",
   outDir: "docs",
   vite: {

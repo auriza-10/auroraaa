@@ -5,9 +5,9 @@ Feedback:
 [+15] Metadata, Markup y Accesibilidad
 Mejorar los textos alternativos de las imágenes y nombres de archivos, haciéndolos más descriptivos:
 Apply to README.md, Ej:
-<img src="/img/aurora-shield.jpg" alt="Aurora Escudo - Nos protegemos de tal cosa, ..." />
+<img src="/auroraaa/img/aurora-shield.jpg" alt="Aurora Escudo - Nos protegemos de tal cosa, ..." />
 en lugar de:
-<img src="/img/aurora1.jpg" alt="Aurora 1" />
+<img src="/auroraaa/img/aurora1.jpg" alt="Aurora 1" />
 
 [+15] Funcionalidad / Interactividad
 Todos los links/botones funcionan, aunque hay interactividad que no hace nada, los estilos over son indicadores de acción, principalmente en sliders.
