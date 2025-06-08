@@ -1,0 +1,1 @@
+import{S as e,P as i}from"./pagination.DzbA7RNG.js";document.addEventListener("DOMContentLoaded",()=>{new e(".mySwiper",{slidesPerView:"auto",spaceBetween:30,pagination:{el:".swiper-pagination",clickable:!0},modules:[i]})});
